@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Minutiae - Quiz</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles/quiz.css') }}">
+    <link rel="icon" type="image/png" href="https://img.icons8.com/bubbles/50/000000/short-hair-lady-question-mark.png">
+</head>
+<body>
+<p id="check" >quizapi</p>
+<p id="time_until">{{time_until}}</p>
+<div id="count-down">
+
+</div>
+
+    <div class="box">
+        <header>
+            <div class="title">Minutiae - The Quiz Application</div>
+         </header>
+        <form id="quizapiform" action="/score" method="post">
+
+            <ol>
+            {% for ques in questions%}
+            <label  class="container"><li>{{ques["question"]}}</li> </label>
+
+                {% for i in range(4)%}
+                    <p>
+                        <input type="radio"  name="ques{{ques.id}}" value="{{ques['incorrect_answers'][i]}}">
+                        {{ques["incorrect_answers"][i]}}
+                        <span class="checkmark"></span>
+                        </p>
+
+                    {% endfor %}
+
+
+            {% endfor %}
+            </ol>
+
+<input type="submit" value="Submit"></input>
+</form>
+    </div>
+<script src="static/script/jquery.min.js"></script>
+<script src="static/script/main.js"></script>
+</body>
+</html>

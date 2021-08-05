@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minutiae - Login</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles/login.css')}}">>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://img.icons8.com/bubbles/50/000000/short-hair-lady-question-mark.png">
+</head>
+<body>
+    <ul style="position:fixed; top:0; left:0; width:100%; height:50px; margin-bottom:10px;">
+<!--    <li style="float:right"><a class="active" href="signup.html">Sign Up</a></li>-->
+    <li><a href="{{url_for('home')}}" class="logo"><b>Minutiae</b></a></li>
+    <li><img src="https://img.icons8.com/bubbles/50/000000/short-hair-lady-question-mark.png"/></li>
+    </ul>
+    <h2 style="margin-top:70px; margin-left:3%;"><span style="color:#ffffff;font-weight:bold; font-size: 40px;">Login to your account</span></h2>
+    <div class="box">
+        <form action="{{url_for('login')}}" method="post">
+          <label for="fname">Email:</label>
+          <input type="text" id="fname" name="email" placeholder="Your email..">
+      
+          
+          <label for="pwd">Password:</label><br>
+          <input type="password" id="pwd" name="password" placeholder="Your password..">
+
+        
+          <input type="submit" value="Login">
+        </form>
+      </div>
+       
+</body>
+</html>
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Minutiae - Login</title>-->
+
+
+<!--</head>-->
+<!--<body>-->
+
+
+<!--<h1> </h1><br><br>-->
+
+
+
+
+<!--    <div class="box">-->
+<!--        <form action="/action_page.php">-->
+<!--          <label for="fname">Username/Email:</label>-->
+<!--          <input type="text" id="fname" name="firstname" placeholder="Your username..">-->
+
+
+<!--          <label for="pwd">Password:</label><br>-->
+<!--          <input type="password" id="pwd" name="pwd" placeholder="Your password..">-->
+<!--          <label>-->
+<!--            <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me-->
+<!--          </label>-->
+
+<!--          <input type="submit" value="Login">-->
+<!--        </form>-->
+<!--      </div>-->
+
+<!--</body>-->
+<!--</html>-->

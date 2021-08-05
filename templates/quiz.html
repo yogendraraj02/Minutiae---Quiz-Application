@@ -1,0 +1,75 @@
+<!--{{ url_for('static', filename='styles.css') }}-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minutiae - Quiz</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles/quiz.css')}}">
+    <link rel="icon" type="image/png" href="https://img.icons8.com/bubbles/50/000000/short-hair-lady-question-mark.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+<!-- additional set timer
+    <div class="item html">
+    <h2></h2>
+    <svg width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+     <g>
+      <title>Layer 1</title>
+      
+      <circle id="circle" class="circle_animation" r="69.85699" cy="81" cx="81" stroke-width="8" stroke="#6fdb6f" fill="none"/>
+     </g>
+    </svg>
+</div> -->
+
+
+
+<!---->
+    <p id="check">quiz</p>
+    <p id="code">{{code}}</p>
+<p id="time_until">{{time_until}}</p>
+<div id="count-down">
+
+</div>
+    <div class="box">
+        <header>
+
+            <div class="title">Minutiae - The Quiz Application</div>
+         </header>
+        {% if code %}
+            <form id="quizform" action="/show_result/{{code}}" method="post">
+            {% else %}
+                <form action="/show_result" method="post">
+            {% endif %}
+            {% for ques in questions %}
+        <p><b>{{ques.question}}</b></p>
+            <label class="container" value="{{ques.option1}}">{{ques.option1}}
+            <input type="radio"  value = "{{ques.option1}}"name="{{ques.id}}">
+            <span class="checkmark"></span>
+            </label>
+            <label class="container" >{{ques.option2}}
+            <input type="radio" name="{{ques.id}}" value="{{ques.option2}}">
+            <span class="checkmark"></span>
+            </label>
+            <label class="container" >{{ques.option3}}
+            <input type="radio"  name="{{ques.id}}" value="{{ques.option3}}">
+            <span class="checkmark"></span>
+            </label>
+            <label class="container" >{{ques.option4}}
+            <input type="radio"  value="{{ques.option4}}" name= "{{ques.id}}">
+            <span class="checkmark"></span>
+            </label>
+            {% endfor %}
+            <input type="submit" value="submit">
+        </form>
+             <!--Next/Previous buttons:-->
+<!--    <div class="pagination">-->
+<!--        <a href="#">Next ques ❯</a>-->
+<!--    </div>-->
+     </div>
+<script src="static/script/jquery.min.js"></script>
+<script src="static/script/main.js"></script>
+</body>
+
+</html>

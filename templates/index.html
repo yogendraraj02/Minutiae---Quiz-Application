@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minutiae</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles/index.css')}}">
+    <script src="{{url_for('static',filename='script/ol.js')}}"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://img.icons8.com/bubbles/50/000000/short-hair-lady-question-mark.png">
+</head>
+    <body>
+
+        <div class="header">
+          <a href="{{url_for('home')}}" class="logo">Minutiae</a>
+          <img src="https://img.icons8.com/bubbles/50/000000/short-hair-lady-question-mark.png"/>
+          <div class="header-right">
+            <!-- Don't uncomment this line <a class="active" href="#home">Home</a>-->
+                {% if logged_in:%}
+              <a href="/profile"> {{current_user.name}}</a>
+              <a href="/logout">Logout</a>
+               {% else %}
+            <a href="/login">Login</a>
+            <a href="/signup">Sign up</a>
+              {% endif %}
+          </div>
+        </div>
+        <div  class="bg">
+        <h1><span style="color:#10c9ff;font-weight:bold; font-size: 70px;">Minu</span><span style="color: #feb916;font-weight:bold; font-size: 70px">tiae</span></h1>
+        <h2><span style="color:#ffffff;font-weight:bold; font-size: 30px;">The Quiz Web Application</span></h2>
+        <p><span style="color:#ffffff;font-weight:bold; font-size:25px;">Choose any option:</span></p>
+        </div>
+
+
+        <div class="container">
+          <div class="container-fluid full-width">
+              <div class="row-fluid">
+                  {% if logged_in:%}
+                  <button onclick="window.location.href='/quizapi';" class="button" style="vertical-align:middle"><span><b>Quick Quiz</b></span></button>
+                  <button onclick="openNav()" class="button" style="vertical-align:middle"><span><b>Enter Code</b></span></button></div>
+                  <button onclick="window.location.href='/makequiz';" class="button" style="vertical-align:middle"><span><b>Make your own quiz</b></span></button>
+                  {% else %}
+                   <button onclick="window.alert('Please login first');"  class="button" style="vertical-align:middle"><span><b>Quick Quiz</b></span></button>
+                  <button onclick="window.alert('Please login first');"  class="button" style="vertical-align:middle"><span><b>Enter Code</b></span></button></div>
+                  <button onclick="window.alert('Please login first');" class="button" style="vertical-align:middle"><span><b>Make your own quiz</b></span></button>
+
+
+              {% endif %}
+          </div>
+          </div>
+      </div>
+
+      <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+        <div style="text-align:center"></div><form class="form-inline" method="post" action="/code">
+        <input type="code" id="code" placeholder="Enter code" name="code">
+        <button type="submit">Submit</button>
+      </form>
+      </div>
+        </div>
+      </div>
+
+      <footer class=ft>
+          Minutiae &copy; 2021
+      </footer>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minutiae - Result</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles/result.css')}}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://img.icons8.com/bubbles/50/000000/short-hair-lady-question-mark.png">
+</head>
+<body>
+    <ul>
+        <li><a href="/" class="logo"><b>Minutiae</b></a></li>
+        <li><img src="https://img.icons8.com/bubbles/50/000000/short-hair-lady-question-mark.png"/></li>
+    </ul>
+    <!-- <p class="forscore">{{incorrect_answers}}</p> -->
+    <!-- <p class="forscore">{{correct_answers}}</p> -->
+    <p class="hide userscore">{{score}}</p>
+    <p class=" hide tquestions">{{total_questions}}</p>
+    <div class="box">
+        {% if logged_in: %}
+        <!-- you've completed the quiz! -->
+        <h1><span>Well done 😎</span> {{current_user.name}}! </h1>
+        {% else %}
+        <h1>Well done, you've completed the quiz!</h1>
+        {% endif %}
+        <h2>Here's the result:</h2>
+            <div class="op">
+              <h3>Score: {{score * 10}}</h3>
+              <div class="c"><p><b>Correct answers:</b></p>
+              {%for answer in correct_answers %}
+
+                    <p style="color: green;">{{answer}}</p>
+                {% endfor %}
+              </div>
+
+              <div class="i"><p><b>Incorrect answers:</b></p>
+              {%for inanswer in incorrect_answers %}
+
+                <p style="color: #ce1212;">{{inanswer}}</p>
+                {% endfor %}
+              </div>
+            </div>
+            <button onclick="window.location.href='/';" class="button" style="vertical-align:middle"><span><b>Okay</b></span></button>
+            <button onclick="window.location.href='/';" class="button" style="vertical-align:middle"><span><b>Retake quiz</b></span></button>
+
+    </div>
+</body>
+<script src="{{url_for('static',filename='script/jquery.min.js')}}"></script>
+<script src="{{url_for('static',filename='script/main.js')}}"></script>
+</html>

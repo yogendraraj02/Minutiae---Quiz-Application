@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minutiae - User Profile</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles/profile.css')}}">
+    <link rel="icon" type="image/png" href="https://img.icons8.com/bubbles/50/000000/short-hair-lady-question-mark.png">
+</head>
+<body>
+
+    <ul>
+<!--        <li style="float:right"><a class="active" href="/logout">Log out</a></li>-->
+        <li><a href="{{url_for('home')}}" class="logo">Minutiae</a></li>
+        <li><img src="https://img.icons8.com/bubbles/50/000000/short-hair-lady-question-mark.png"/></li>
+      </ul>
+    <div class="box card">
+        <img  src="{{url_for('static',filename='styles/prof.png')}}" style="width:30%">
+            <h1>{{user.name}}</h1>
+            <p class="title">{{user.email}}</p>
+<!--            <p><b>Questions created:-</b></p>-->
+        <!--
+ <p><b>Questions submitted by <span style="color:#4899CF">{{current_user.name}}</span></b></p>-->
+            <div style="margin: 24px 0;">
+                <a href="{{url_for('user_questions')}}">My Questions</a><br>
+            </div>
+            <div style="margin: 24px 0;">
+                <a href="{{url_for('user_responses')}}">My Responses</a><br>
+            </div>
+<!--        <p><b>User Responses:-</b></p>-->
+<!--        <div style="margin: 24px 0;">-->
+<!--                <a href="{{url_for('user_responses')}}">Response by users</a><br>-->
+
+
+<!--            </div>-->
+            <form action="/logout">
+            <p><button >Log Out</button></p>
+            </form>
+
+    </div>
+</body>
+</html>

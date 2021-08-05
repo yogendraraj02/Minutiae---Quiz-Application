@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{name}} questions</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <link rel="icon" type="image/png" href="https://img.icons8.com/bubbles/50/000000/short-hair-lady-question-mark.png">
+
+
+
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: grey;
+  color: white;
+}
+</style>
+</head>
+<body>
+<h1 style="text-align: center ;padding: 14px; color: whitesmoke; background-color: grey; margin-bottom: 0%; font-weight: 600; ">{{name}}  QUIZ </h1>
+
+<table id="customers">
+
+    <tr>
+    <th>Question</th>
+    <th>Option1</th>
+    <th>Option2</th>
+    <th>Option3</th>
+    <th>Option4</th>
+    <th>Answer</th>
+    <th>Delete Questions</th>
+  </tr>
+    {% for ques in questions %}
+  <tr>
+    <td>{{ques.question}}</td>
+    <td>{{ques.option1}}</td>
+    <td>{{ques.option2}}</td>
+    <td>{{ques.option3}}</td>
+    <td>{{ques.option4}}</td>
+    <td>{{ques.answer}}</td>
+    <td><a class="badge badge-secondary" href="/deletequestion/{{ques.id}}">Delete</a></td>
+
+  </tr>
+  {% endfor %}
+</table>
+<br>
+<h4 style="text-align:center;" onclick="changeText(this)">Click on this to generate code!</h4>
+
+<form action="/" >
+    <button style="margin-left:850px" type="submit" class="btn btn-secondary">Go to Home page!</button>
+</form>
+<script>
+
+function changeText(id) {
+  id.innerHTML = "{{name}}";
+  
+}a
+</script>
+
+</body>
+</html>
+

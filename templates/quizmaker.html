@@ -1,0 +1,73 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Quiz MAker</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<form action="/addquestion" method="post">-->
+<!--  <label>Enter Question:</label>-->
+<!--  <input type="text" value="" name="question">-->
+<!--  <label>option1:</label>-->
+<!--  <input type="text" value="" name="option1">-->
+<!--  <label>option2:</label>-->
+<!--  <input type="text" value="" name="option2">-->
+<!--  <label>option3:</label>-->
+<!--  <input type="text" value="" name="option3">-->
+<!--  <label>option4:</label>-->
+<!--  <input type="text" value="" name="option4">-->
+<!--&lt;!&ndash;  <label>option4:</label>&ndash;&gt;-->
+<!--&lt;!&ndash;  <input type="text" value="">&ndash;&gt;-->
+<!--  <label>answer:</label>-->
+<!--  <input type="text" value="" name="answer">-->
+<!--  <input type="submit" value="Add Question">-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minutiae - Make your own quiz</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles/make.css')}}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://img.icons8.com/bubbles/50/000000/short-hair-lady-question-mark.png">
+</head>
+<body>
+  <ul>
+      <li style="float:right"><a class="active" href="/logout">Logout</a></li>
+    <li style="float:right"><a class="active" href="/profile">{{current_user.name}}</a></li>
+    <li><a href="index.html" class="logo"><b>Minutiae</b></a></li>
+    <li><img src="https://img.icons8.com/bubbles/50/000000/short-hair-lady-question-mark.png"/></li>
+</ul>
+
+<div class="box">
+        <form action="/addquestion" method="post">
+          <label for="entQues">Enter Question:</label>
+          <input type="text" id="entQues" name="question" placeholder="Write question here..">
+
+          <label for="op1">Option 1:</label>
+          <input type="text" id="op1" name="option1" placeholder="Write option no.1 here..">
+
+          <label for="op2">Option 2:</label>
+          <input type="text" id="op2" name="option2" placeholder="Write option no.2 here..">
+
+          <label for="op3">Option 3:</label>
+          <input type="text" id="op3" name="option3" placeholder="Write option no.3 here..">
+
+          <label for="op4">Option 4:</label>
+          <input type="text" id="op4" name="option4" placeholder="Write option no.4 here..">
+
+          <label for="ans">Answer:</label>
+          <input type="text" id="ans" name="answer" placeholder="Write answer here..">
+          <input type="submit" value="Add question">
+        </form>
+      </div>
+</body>
+</html>

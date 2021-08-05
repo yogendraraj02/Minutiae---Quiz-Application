@@ -1,0 +1,62 @@
+<!--{{ url_for('static', filename='styles.css') }}-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minutiae - Quiz</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles/quiz.css')}}">
+</head>
+<body>
+    <div class="box">
+        <header>
+
+            <div class="title">Minutiae - The Quiz Application</div>
+         </header>
+        <form action="" method="post" >
+            {% for ques in question %}
+
+                    <p><b>{{ques.question}}</b></p>
+                        <label class="container" value="{{ques.option1}}">{{ques.option1}}
+                        <input type="radio"  value = "{{ques.option1}}"name="{{ques.id}}">
+                        <span class="checkmark"></span>
+                        </label>
+                        <label class="container" >{{ques.option2}}
+                        <input type="radio" name="{{ques.id}}" value="{{ques.option2}}">
+                        <span class="checkmark"></span>
+                        </label>
+                        <label class="container" >{{ques.option3}}
+                        <input type="radio"  name="{{ques.id}}" value="{{ques.option3}}">
+                        <span class="checkmark"></span>
+                        </label>
+                        <label class="container" >{{ques.option4}}
+                        <input type="radio"  value="{{ques.option4}}" name= "{{ques.id}}">
+                        <span class="checkmark"></span>
+                        </label>
+
+            {% endfor %}
+            <!--       commented part   -->
+            {#
+                {% for page in question.iter_pages() %}
+                {% if page  %}
+                <a href="{{url_for('show_quiz',page_num=page)}}">{{page}}</a>
+                {% endif %}
+                {% if page == 5 %}
+
+                <input type="submit" value="submit">
+                {% endif %}
+
+                {% endfor %}
+                 <b>bs kuch nahi</b>
+            #}
+
+            <br>
+<!--            <input style="align:center " type="submit" value="Done">-->
+        </form>
+
+
+     </div>
+
+</body>
+</html>
