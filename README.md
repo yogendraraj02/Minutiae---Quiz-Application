@@ -1,2 +1,2 @@
-# Minutae---Quiz-Application
+# Minutiae---Quiz-Application
 A flask based web application!!
